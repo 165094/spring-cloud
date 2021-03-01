@@ -1,0 +1,29 @@
+# :::: 服务注册中心的端口 ::::
+server:
+    port: 1200
+
+# :::: 应用名称 ::::
+spring:
+  application:
+    name: test-server-eureka
+
+# :::: 本服务注册中心实例的hostname ::::
+# 默认为 "127.0.0.1" 或实际的IP地址.
+# 也可以指定为有意义的名称，如： eureka-server-1
+# 则需要设置：
+# 1. 加IP映射，修改服务器 /etc/hosts 文件，增加一条，如：
+#   127.0.0.1       eureka-server-1
+# 2. 同时设置 eureka.instance.hostname=eureka-server-1
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    lease-expiration-duration-in-seconds: 90 # 定义服务失效时间，默认为90秒
+    lease-renewal-interval-in-seconds: 30 # 定义服务续约的间隔时间，默认为30秒
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 50000 # 续期时间，即扫描失效服务的间隔时间（缺省为60*1000ms）
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://localhost:1200/eureka/    # 注册自己

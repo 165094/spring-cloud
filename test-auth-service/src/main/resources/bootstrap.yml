@@ -1,0 +1,26 @@
+server:
+  port: 1202
+
+study:
+  nacos:
+    namespace: 6a72c3f6-7839-4094-87d5-32637d8821e6
+    group: dev
+    server-addr: localhost:8848
+
+login:
+  clientId: client
+  clientSecret: secret
+spring:
+  application:
+    name: auth-service
+  # nacos注册中心和配置
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${study.nacos.server-addr}
+#        namespace: ${study.nacos.namespace}
+      config:
+        file-extension: yaml
+        server-addr: ${study.nacos.server-addr}
+        namespace: ${study.nacos.namespace}
+        group: ${study.nacos.group}

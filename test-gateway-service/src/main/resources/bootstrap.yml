@@ -1,0 +1,36 @@
+server:
+  port: 1205
+
+study:
+  nacos:
+    namespace: 6a72c3f6-7839-4094-87d5-32637d8821e6
+    group: dev
+    server-addr: localhost:8848
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${study.nacos.server-addr}
+#        namespace: ${study.nacos.namespace}
+      config:
+        file-extension: yaml
+        server-addr: ${study.nacos.server-addr}
+        namespace: ${study.nacos.namespace}
+        group: ${study.nacos.group}
+    gateway:
+      routes:
+      - id: uaa
+        uri: lb://auth-service
+        predicates:
+        - Path=/uaa/**
+        filters:
+        - StripPrefix=1
+      - id: order
+        uri: lb://consumption-service
+        predicates:
+        - Path=/server/user/**
+        filters:
+        - StripPrefix=1

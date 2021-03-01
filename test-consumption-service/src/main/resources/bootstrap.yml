@@ -1,0 +1,38 @@
+server:
+    port: 1201
+
+study:
+  nacos:
+    namespace: 6a72c3f6-7839-4094-87d5-32637d8821e6
+    group: dev
+    server-addr: localhost:8848
+
+spring:
+  application:
+    name: consumption-service
+  # nacos注册中心和配置
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${study.nacos.server-addr}
+#        namespace: ${study.nacos.namespace}
+      config:
+        file-extension: yaml
+        server-addr: ${study.nacos.server-addr}
+        namespace: ${study.nacos.namespace}
+        group: ${study.nacos.group}
+  rabbitmq:
+    addresses: 192.168.41.139:5672
+    username: guest
+    password: guest
+#  kafka:
+#    bootstrap-servers: 192.168.126.128:9092
+#    producer:
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#    consumer:
+#      group-id: test-consumer-group
+#      enable-auto-commit: true
+#      auto-commit-interval: 1000
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer

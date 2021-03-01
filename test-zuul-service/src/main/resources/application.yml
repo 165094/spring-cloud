@@ -1,0 +1,24 @@
+# :::: 服务注册中心的端口 ::::
+server:
+    port: 1205
+
+# :::: 应用名称 ::::
+spring:
+  application:
+    name: test-zuul-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1200/eureka/    # 注册服务地址
+
+zuul:
+  host:
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 10000
+  routes:
+    consump:
+      path: /consump/**
+      sensitiveHeaders:
+      serviceId: test-consumption-service      # test-consumption-service
+  add-proxy-headers: true

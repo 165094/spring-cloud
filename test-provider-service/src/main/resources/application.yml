@@ -1,0 +1,15 @@
+server:
+  port: 1202
+
+# :::: 服务名称 ::::
+spring:
+  application:
+    name: test-provider-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.126.128:1200/eureka/    # eureka注册地址ַ
+
+logging:
+  file: D:\workSoftware\logs\log-2020-02-16.log

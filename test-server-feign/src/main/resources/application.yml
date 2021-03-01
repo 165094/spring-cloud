@@ -1,0 +1,13 @@
+# :::: 服务注册中心的端口 ::::
+server:
+    port: 1202
+
+# :::: 应用名称 ::::
+spring:
+  application:
+    name: test-server-feign
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1200/eureka/    # 注册服务地址

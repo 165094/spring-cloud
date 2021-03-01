@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.test</groupId>
+    <artifactId>study-parent-test</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+
+    <name>study-parent</name>
+    <description>Demo project for Spring cloud</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.4.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <modules>
+        <!-- platform runtime -->
+        <module>../test-server-eureka</module>
+        <module>../test-consumption-service</module>
+        <module>../test-server-feign</module>
+        <module>../test-provider-service</module>
+        <module>../test-zuul-service</module>
+        <module>../test-auth-service</module>
+        <module>../test-gateway-service</module>
+        <module>../study-parent</module>
+    </modules>
+
+    <properties>
+        <spring-cloud.version>Finchley.SR1</spring-cloud.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <!-- version -->
+        <mybatis-plus-boot-starter.version>3.1.0</mybatis-plus-boot-starter.version>
+        <mybatis-plus.version>3.1.0</mybatis-plus.version>
+        <test.version>0.0.1-SNAPSHOT</test.version>
+        <mysql-connector-java.version>5.1.38</mysql-connector-java.version>
+        <fastjson.version>1.2.44</fastjson.version>
+        <lombok.version>1.16.12</lombok.version>
+        <commons-io.version>2.5</commons-io.version>
+        <log4j.version>1.2.17</log4j.version>
+        <commons-beanutils.version>1.9.3</commons-beanutils.version>
+        <spring-security-jwt.version>1.0.10.RELEASE</spring-security-jwt.version>
+        <alibaba-nacos-config.version>0.2.1.RELEASE</alibaba-nacos-config.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.test</groupId>
+                <artifactId>test-server-eureka</artifactId>
+                <version>${test.version}</version>
+            </dependency>
+            <!-- mybatis-plus begin -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-support</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!-- mybatis-plus end -->
+            <!-- tools -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <scope>test</scope>
+            </dependency>
+            <!-- lombok begin -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <!-- lombok end -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.commons-io.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
