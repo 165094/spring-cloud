@@ -1,0 +1,12 @@
+server:
+  port: 1203
+
+# :::: ·şÎñÃû³Æ ::::
+spring:
+  application:
+    name: test-rabbit-consumer
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin

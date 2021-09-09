@@ -5,11 +5,16 @@ server:
 spring:
   application:
     name: test-provider-service
+  rabbitmq:
+    host: 10.6.35.35
+    port: 5672
+    username: admin
+    password: admin
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://192.168.126.128:1200/eureka/    # eureka注册地址ַ
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://192.168.126.128:1200/eureka/    # eureka注册地址ַ
 
-logging:
-  file: D:\workSoftware\logs\log-2020-02-16.log
+#logging:
+#  file: D:\workSoftware\logs\log-2020-02-16.log

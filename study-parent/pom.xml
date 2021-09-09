@@ -16,24 +16,24 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.4.RELEASE</version>
+        <version>2.2.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <modules>
         <!-- platform runtime -->
-        <module>../test-server-eureka</module>
+<!--        <module>../test-server-eureka</module>-->
         <module>../test-consumption-service</module>
         <module>../test-server-feign</module>
         <module>../test-provider-service</module>
         <module>../test-zuul-service</module>
         <module>../test-auth-service</module>
         <module>../test-gateway-service</module>
-        <module>../study-parent</module>
     </modules>
 
     <properties>
-        <spring-cloud.version>Finchley.SR1</spring-cloud.version>
+        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+        <spring-cloud.alibaba.version>2.2.1.RELEASE</spring-cloud.alibaba.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
