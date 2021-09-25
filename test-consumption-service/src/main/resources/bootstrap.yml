@@ -21,10 +21,30 @@ spring:
         server-addr: ${study.nacos.server-addr}
         namespace: ${study.nacos.namespace}
         group: ${study.nacos.group}
-  rabbitmq:
-    addresses: 192.168.41.139:5672
-    username: guest
-    password: guest
+  datasource:
+    url: jdbc:mysql://192.168.126.128:3306/test_study?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: root1234
+
+mybatis-plus:
+  mapper-locations: classpath:/mapping/*.xml
+  typeAliasesPackage: com.test.consumption.moudle.develop.entity
+  global-config:
+    id-type: 0
+    field-strategy: 2
+    db-column-underline: false
+    refresh-mapper: true
+    logic-delete-value: D
+    logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+    lazyLoadingEnabled: true
+    multipleResultSetsEnabled: true
+#  rabbitmq:
+#    addresses: 192.168.41.139:5672
+#    username: guest
+#    password: guest
 #  kafka:
 #    bootstrap-servers: 192.168.126.128:9092
 #    producer:
