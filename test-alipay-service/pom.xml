@@ -44,6 +44,11 @@
             <artifactId>alipay-sdk-java</artifactId>
             <version>4.10.167.ALL</version>
         </dependency>
+        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-easysdk</artifactId>
+            <version>2.1.2</version>
+        </dependency>
     </dependencies>
 
     <build>
