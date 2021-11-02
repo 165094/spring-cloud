@@ -16,15 +16,15 @@ spring:
       discovery:
         server-addr: ${study.nacos.server-addr}
 #        namespace: ${study.nacos.namespace}
-      config:
-        file-extension: yaml
-        server-addr: ${study.nacos.server-addr}
-        namespace: ${study.nacos.namespace}
-        group: ${study.nacos.group}
-  rabbitmq:
-    addresses: 192.168.41.139:5672
-    username: guest
-    password: guest
+#      config:
+#        file-extension: yaml
+#        server-addr: ${study.nacos.server-addr}
+#        namespace: ${study.nacos.namespace}
+#        group: ${study.nacos.group}
+#  rabbitmq:
+#    addresses: 192.168.41.139:5672
+#    username: guest
+#    password: guest
 #  kafka:
 #    bootstrap-servers: 192.168.126.128:9092
 #    producer:

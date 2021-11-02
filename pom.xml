@@ -28,6 +28,7 @@
         <module>test-consumption-service</module>
         <module>test-provider-service</module>
         <module>test-rabbit-consumer</module>
+        <module>test-rocketmq-provider-service</module>
         <!--        <module>test-zuul-service</module>-->
     </modules>
 

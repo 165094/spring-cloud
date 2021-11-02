@@ -1,0 +1,18 @@
+server:
+  port: 1208
+
+spring:
+  application:
+    name: test-rocketmq-provider-service
+
+rocketmq:
+  consumer:
+    namesrvAddr: 127.0.0.1:9876
+    groupName: test-demo
+    instanceName: consumer.demo
+  producer:
+    sendMsgTimeout: 10000
+    maxMessageSize: 999999999
+    compressOver: 40000
+  topic: test-demo
+  tag: "111"
