@@ -2,6 +2,7 @@ package com.test.auth.config;
 
 import com.test.auth.security.BaseClientDetailService;
 import com.test.auth.security.BaseUserDetailService;
+import com.test.auth.security.JwtTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +17,8 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 @Configuration
 @EnableAuthorizationServer
@@ -30,9 +32,9 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
     @Bean
     public TokenStore redisTokenStore() {
-        return new RedisTokenStore(redisConnectionFactory);
+//        return new RedisTokenStore(redisConnectionFactory);
         //JWT token 签名加密
-//        return new JwtTokenStore(accessTokenConverter());
+        return new JwtTokenStore(accessTokenConverter());
     }
 
     @Override
@@ -74,13 +76,13 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     /**
      * JwtAccessToken转换器
      */
-//    @Bean
-//    public JwtAccessTokenConverter accessTokenConverter() {
-//        JwtAccessTokenConverter converter = new JwtTokenEnhancer();
-//        // 添加JWT的签名key
-//        converter.setSigningKey("secret");
-//        return converter;
-//    }
+    @Bean
+    public JwtAccessTokenConverter accessTokenConverter() {
+        JwtAccessTokenConverter converter = new JwtTokenEnhancer();
+        // 添加JWT的签名key
+        converter.setSigningKey("secret");
+        return converter;
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {

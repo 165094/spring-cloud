@@ -34,3 +34,14 @@ spring:
         - Path=/server/user/**
         filters:
         - StripPrefix=1
+  redis:
+    database: 5
+    host: 192.168.126.128
+    port: 6379
+    timeout: 10s
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1s
+        max-idle: 8
+        min-idle: 0

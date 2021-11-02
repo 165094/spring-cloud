@@ -4,6 +4,7 @@ package com.test.aop.develop.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
@@ -14,6 +15,7 @@ public class ServiceAutoConfiguration {
     @Autowired
     private ConfigProperties configProperties;
 
+    @Bean
     public ConfigService getConfigService(){
         ConfigService configService = new ConfigService(configProperties);
         return configService;
